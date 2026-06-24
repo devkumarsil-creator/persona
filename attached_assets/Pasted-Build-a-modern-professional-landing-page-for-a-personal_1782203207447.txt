@@ -1,0 +1,133 @@
+Build a modern, professional landing page for a personality assessment platform using Next.js 15, React, TypeScript, and Tailwind CSS.
+
+Project Name: PersonaScope
+
+Goal:
+Create a landing page similar in quality to 16Personalities, but with a unique design and branding.
+
+Requirements:
+
+1. Hero Section
+
+* Full-width responsive design
+* Modern gradient background
+* Headline:
+  "Discover Your True Personality"
+* Subheadline:
+  "Take our scientifically inspired personality assessment and receive a detailed report about your strengths, work style, relationships, and career potential."
+* CTA Button:
+  "Start Free Assessment"
+* Secondary Button:
+  "Learn More"
+* Illustration placeholder on the right side
+
+2. Trust Section
+   Display:
+
+* 10,000+ Assessments Completed
+* 16 Personality Types
+* 95% User Satisfaction
+
+Use attractive cards with icons.
+
+3. How It Works Section
+   Three-step process:
+
+Step 1:
+Answer Questions
+
+Step 2:
+Get Personality Type
+
+Step 3:
+Receive Detailed Report
+
+Include modern icons and hover animations.
+
+4. Personality Types Preview
+   Display 4 sample cards:
+
+Analyst
+Diplomat
+Sentinel
+Explorer
+
+Each card should contain:
+
+* Icon
+* Short description
+* Learn More button
+
+5. Features Section
+   Create cards for:
+
+Career Insights
+Relationship Analysis
+Leadership Style
+Personal Growth
+Team Compatibility
+Workplace Strengths
+
+Use a responsive grid layout.
+
+6. Testimonials Section
+   Add 3 sample testimonials.
+
+Include:
+
+* Avatar placeholder
+* Name
+* Occupation
+* Review text
+
+7. FAQ Section
+   Accordion component with:
+
+How long does the assessment take?
+Is the report free?
+How accurate are the results?
+Can I retake the assessment?
+
+8. Final CTA Section
+   Headline:
+   "Ready to Understand Yourself Better?"
+
+Button:
+"Take the Assessment"
+
+9. Footer
+   Include:
+
+* About
+* Privacy Policy
+* Contact
+* Terms of Service
+* Social media icons
+
+Design Requirements:
+
+* Mobile responsive
+* Modern SaaS design
+* Smooth animations using Framer Motion
+* Tailwind CSS styling
+* Accessible components
+* Clean typography
+* Light and dark mode support
+
+Technical Requirements:
+
+* Use reusable React components
+* Organize components into separate files
+* Use TypeScript
+* SEO-friendly metadata
+* Fast loading performance
+
+Generate all code files needed, including:
+
+* app/page.tsx
+* components folder structure
+* Tailwind classes
+* sample data
+* metadata configuration
+
+Return production-ready code.

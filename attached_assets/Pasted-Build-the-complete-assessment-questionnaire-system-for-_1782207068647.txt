@@ -1,0 +1,312 @@
+Build the complete assessment questionnaire system for PersonaScope using Next.js 15, TypeScript, Tailwind CSS, and Supabase.
+
+IMPORTANT:
+Do NOT copy questions, personality descriptions, scoring methods, text, labels, reports, or content from any existing personality assessment website.
+
+Create completely original questions and personality profiles.
+
+GOAL
+
+Create a working personality assessment with:
+
+* 60 original questions
+* Progress tracking
+* One question per screen
+* Answer persistence
+* Scoring engine
+* Results generation
+* Mobile responsive UI
+
+---
+
+## ASSESSMENT STRUCTURE
+
+Create 4 dimensions:
+
+Social Energy
+
+* Outward Focused
+* Inward Focused
+
+Information Style
+
+* Practical
+* Conceptual
+
+Decision Style
+
+* Analytical
+* Human-Centered
+
+Lifestyle Style
+
+* Structured
+* Adaptive
+
+Each dimension contains:
+
+15 questions
+
+Total:
+60 questions
+
+---
+
+## QUESTION FORMAT
+
+Create 60 completely original questions.
+
+Examples of style only:
+
+"I feel energized after participating in large group discussions."
+
+"When learning something new, I prefer understanding the underlying theory before the practical details."
+
+"I often create plans well before deadlines."
+
+Questions must:
+
+* Be original
+* Be workplace-friendly
+* Be appropriate globally
+* Avoid copyrighted content
+* Be balanced between positive and reverse scoring
+
+Store questions in:
+
+/data/questions.ts
+
+Question structure:
+
+{
+id: 1,
+dimension: "social_energy",
+polarity: "outward",
+text: "I enjoy initiating conversations with unfamiliar people."
+}
+
+---
+
+## ANSWER SCALE
+
+5-point Likert scale
+
+Strongly Agree = 5
+Agree = 4
+Neutral = 3
+Disagree = 2
+Strongly Disagree = 1
+
+Create reusable answer component.
+
+---
+
+## ASSESSMENT EXPERIENCE
+
+Page:
+
+/assessment
+
+Features:
+
+* One question at a time
+* Previous button
+* Next button
+* Progress bar
+* Question counter
+
+Example:
+
+Question 12 of 60
+
+20% Complete
+
+Auto-scroll to top on question change.
+
+Responsive on mobile and desktop.
+
+---
+
+## AUTOSAVE
+
+Every answer automatically saves to Supabase.
+
+Create table:
+
+assessment_responses
+
+Columns:
+
+id
+session_id
+question_id
+answer_value
+created_at
+
+Use UUID session IDs.
+
+User does not need account creation.
+
+Generate anonymous session automatically.
+
+---
+
+## ASSESSMENT COMPLETION
+
+After Question 60:
+
+Calculate dimension scores.
+
+Create four-letter profile code.
+
+Examples:
+
+OPAS
+ICHA
+OPHA
+
+Where:
+
+O = Outward Focused
+I = Inward Focused
+
+P = Practical
+C = Conceptual
+
+A = Analytical
+H = Human-Centered
+
+S = Structured
+D = Adaptive
+
+Generate final profile based on highest score in each dimension.
+
+---
+
+## PROFILE DATABASE
+
+Create:
+
+/data/profiles.ts
+
+Generate 16 unique profiles.
+
+Each profile contains:
+
+title
+summary
+strengths
+growthAreas
+workPreferences
+communicationStyle
+
+Create completely original content.
+
+No copied MBTI descriptions.
+
+Example:
+
+{
+code: "OPAS",
+title: "Strategic Organizer",
+summary: "...",
+strengths: [...],
+growthAreas: [...],
+workPreferences: [...],
+communicationStyle: "..."
+}
+
+---
+
+## RESULTS PAGE
+
+Route:
+
+/results/[profile]
+
+Show:
+
+Profile title
+
+Profile code
+
+Summary
+
+Strengths
+
+Growth Areas
+
+Work Preferences
+
+Communication Style
+
+Dimension score breakdown
+
+Beautiful cards and charts.
+
+Use Recharts.
+
+---
+
+## SUPABASE TABLES
+
+Create SQL for:
+
+assessment_responses
+
+assessment_results
+
+assessment_results columns:
+
+id
+session_id
+profile_code
+social_energy_score
+information_style_score
+decision_style_score
+lifestyle_style_score
+created_at
+
+---
+
+## UX REQUIREMENTS
+
+Modern premium UI.
+
+PersonaScope branding.
+
+Animated progress bar.
+
+Smooth transitions between questions.
+
+Answer selection animation.
+
+Loading state during calculations.
+
+Completion celebration screen.
+
+---
+
+## TECHNICAL REQUIREMENTS
+
+Use:
+
+Next.js App Router
+TypeScript
+Tailwind CSS
+Supabase JS SDK
+Framer Motion
+Recharts
+
+Create:
+
+* Folder structure
+* Components
+* Hooks
+* Utility functions
+* Supabase integration
+* Type definitions
+
+Return production-ready code.
+
+Generate all files needed for the complete assessment system.

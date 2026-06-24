@@ -1,2 +1,0 @@
-# persona
-Personality website

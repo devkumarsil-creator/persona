@@ -1,0 +1,259 @@
+Modify the existing PersonaScope assessment system.
+
+Current behavior:
+User clicks Start Assessment → goes directly to Question 1.
+
+Change this flow:
+
+Landing Page
+↓
+User Information Form
+↓
+Create Assessment Session in Supabase
+↓
+Start Question 1
+↓
+Complete 60 Questions
+↓
+Calculate Result
+↓
+Save Result in Supabase
+↓
+Show Results Page
+
+IMPORTANT:
+Keep the existing design, assessment UI, scoring engine, questions, and results page.
+Only add user onboarding and Supabase persistence.
+
+====================================
+USER INFORMATION SCREEN
+=======================
+
+Create a new route:
+
+/start-assessment
+
+Before questions begin, show a professional onboarding form.
+
+Fields:
+
+Full Name
+Email Address
+Age
+Gender
+Occupation
+Country
+
+Required fields:
+
+Name
+Email
+
+Optional:
+
+Age
+Gender
+Occupation
+Country
+
+UI:
+
+Use PersonaScope branding.
+
+Heading:
+
+"Before we discover your personality..."
+
+Subtitle:
+
+"Tell us a little about yourself. This helps personalize your personality report."
+
+Button:
+
+"Begin Assessment"
+
+Validation:
+
+Email format validation.
+
+Show errors clearly.
+
+====================================
+SUPABASE INTEGRATION
+====================
+
+Use existing Supabase project.
+
+Create tables:
+
+Table:
+assessment_users
+
+Columns:
+
+id UUID primary key
+name text
+email text
+age integer
+gender text
+occupation text
+country text
+created_at timestamp
+
+Table:
+
+assessment_sessions
+
+Columns:
+
+id UUID primary key
+user_id UUID
+started_at timestamp
+completed_at timestamp
+status text
+
+Status values:
+
+started
+completed
+
+Table:
+
+assessment_answers
+
+Columns:
+
+id UUID
+session_id UUID
+question_id integer
+answer_value integer
+created_at timestamp
+
+Table:
+
+assessment_results
+
+Columns:
+
+id UUID
+session_id UUID
+profile_code text
+scores jsonb
+created_at timestamp
+
+====================================
+SESSION FLOW
+============
+
+When user submits onboarding form:
+
+1. Insert user into assessment_users
+
+2. Create assessment_sessions record
+
+3. Save session_id in localStorage
+
+4. Navigate to:
+
+/assessment
+
+====================================
+QUESTION FLOW UPDATE
+====================
+
+Modify existing assessment hook.
+
+Instead of only localStorage:
+
+Save every answer to Supabase.
+
+When user selects:
+
+Strongly Agree = 5
+Agree = 4
+Neutral = 3
+Disagree = 2
+Strongly Disagree = 1
+
+Insert:
+
+session_id
+question_id
+answer_value
+
+Continue keeping localStorage backup.
+
+====================================
+COMPLETION UPDATE
+=================
+
+When question 60 finishes:
+
+1. Calculate personality profile
+
+2. Save result:
+
+assessment_results
+
+3. Update session:
+
+status = completed
+completed_at = now()
+
+4. Navigate:
+
+/results/[profile]
+
+====================================
+SECURITY
+========
+
+Create Supabase client configuration.
+
+Use environment variables:
+
+VITE_SUPABASE_URL
+
+VITE_SUPABASE_ANON_KEY
+
+Do not hardcode keys.
+
+====================================
+NAVIGATION
+==========
+
+Update all buttons:
+
+Start Free Assessment
+Get Started
+Take Assessment
+
+Change destination:
+
+/start-assessment
+
+NOT:
+
+/assessment
+
+====================================
+KEEP EXISTING FEATURES
+======================
+
+Do not remove:
+
+* 60 questions
+* progress bar
+* animations
+* scoring
+* radar chart
+* profiles
+* results page
+
+After implementation:
+
+Run build check.
+
+Fix all TypeScript errors.
+
+Provide summary of changed files.
